@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EmpleadoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,25 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+/**
+ * Rutas de Empleado
+ */
+
+/**
+ * Index: Lista todos los empleados
+ */
+/*
+Route::get('/empleado', function () {
+    return view('empleado.index');
+});
+*/
+
+/**
+ * Create: Para crear un empleado
+ */
+//Route::get('/empleado/create',[EmpleadoController::class, 'create']);
+
+// Mapea todas las rutas del modelo empleado
+Route::resource('empleado', EmpleadoController::class);
