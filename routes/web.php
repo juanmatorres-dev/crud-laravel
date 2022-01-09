@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EmpleadoController;
+use App\Http\Controllers\EmpleadoController; // Lo enlazamos con el controlador de Empleados
 
 /*
 |--------------------------------------------------------------------------

@@ -20,5 +20,5 @@
     <label for="Foto">Foto:</label>
     <input type="file" name="Foto" id="Foto">
     <br/>
-    <input type="submit" value="Crear">
+    <input type="submit" value="Guardar datos" id="Guardar datos">
 </form>
