@@ -95,8 +95,10 @@ class EmpleadoController extends Controller
      * @param  \App\Models\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Empleado $empleado)
+    public function destroy($id)
     {
         //
+        Empleado::destroy($id); // Borrar un empleado con un id
+        return redirect('empleado'); // Redirecciona a la vista principal
     }
 }
