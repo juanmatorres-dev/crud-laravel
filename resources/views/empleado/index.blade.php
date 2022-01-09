@@ -25,7 +25,10 @@ Mostrar la lista de empleados
             <td>{{ $empleado->Apellido2 }}</td>
             <td>{{ $empleado->Email }}</td>
             <td>
-                Editar | 
+                <a href="{{ url('/empleado/'.$empleado->id.'/edit') }}">
+                    Editar
+                </a>
+                 | 
 
                 <form action="{{ url('/empleado/'.$empleado->id) }}" method="post">
                     @csrf
