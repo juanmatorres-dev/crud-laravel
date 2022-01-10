@@ -53,7 +53,9 @@ class EmpleadoController extends Controller
         
         Empleado::insert($datosEmpleado); // Inserta los datos en la BD
 
-        return response()->json($datosEmpleado);
+        //return response()->json($datosEmpleado);
+
+        return redirect('empleado')->with('mensaje','Empleado agregado con éxito 👍');
     }
 
     /**
@@ -128,6 +130,6 @@ class EmpleadoController extends Controller
         }
 
         
-        return redirect('empleado'); // Redirecciona a la vista principal
+        return redirect('empleado')->with('mensaje','Empleado borrado 🗑'); // Redirecciona a la vista principal con un mensaje de sesión
     }
 }
