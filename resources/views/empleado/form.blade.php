@@ -1,5 +1,7 @@
 <!--Formulario que tendrá los datos en común con CREATE y EDIT-->
 
+<a href="{{ url('empleado/') }}">Home 🏠</a>
+<br><br>
 
 <label for="Nombre">Nombre:</label>
 <input type="text" name="Nombre" value="{{ isset($empleado->Nombre)?$empleado->Nombre:'' }}" id="Nombre">
