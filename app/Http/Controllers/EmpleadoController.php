@@ -121,7 +121,13 @@ class EmpleadoController extends Controller
     public function destroy($id)
     {
         //
-        Empleado::destroy($id); // Borrar un empleado con un id
+        $empleado = Empleado::findOrFail($id); // Recupera la información del empleado según el id
+
+        if (Storage::delete('public/'.$empleado->Foto)) {
+            Empleado::destroy($id); // Borrar un empleado con un id
+        }
+
+        
         return redirect('empleado'); // Redirecciona a la vista principal
     }
 }
