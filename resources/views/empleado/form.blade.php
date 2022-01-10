@@ -3,6 +3,8 @@
 <a href="{{ url('empleado/') }}">Home 🏠</a>
 <br><br>
 
+<h1>{{ $modo }} empleado</h1> <!-- Recogemos el dato de la vista -->
+
 <label for="Nombre">Nombre:</label>
 <input type="text" name="Nombre" value="{{ isset($empleado->Nombre)?$empleado->Nombre:'' }}" id="Nombre">
 <br />
@@ -21,4 +23,4 @@
 @endif
 <input type="file" name="Foto" value="" id="Foto">
 <br />
-<input type="submit" value="Guardar datos" id="Guardar datos">
+<input type="submit" value="{{$modo}} datos" id="Guardar datos">

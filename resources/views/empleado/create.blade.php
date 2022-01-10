@@ -5,5 +5,7 @@
 <form action="{{ url('/empleado') }}" method="post" enctype="multipart/form-data">
     @csrf
     
-    @include('empleado.form')
+    <!-- Enviamos un dato (en este caso texto plano) a la vista que vamos a incluir -->
+    @include('empleado.form',['modo'=>'Crear'])
+    
 </form>
