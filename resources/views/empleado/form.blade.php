@@ -14,8 +14,7 @@
 <input type="email" name="Email" value="{{ $empleado->Email }}" id="Email">
 <br />
 <label for="Foto">Foto:</label>
-<img src="{{ asset('storage').'/'.$empleado->Foto }}" alt="">
-{{ $empleado->Foto }}
+<img src="{{ asset('storage').'/'.$empleado->Foto }}" width="95px" alt="">
 <input type="file" name="Foto" value="" id="Foto">
 <br />
 <input type="submit" value="Guardar datos" id="Guardar datos">
