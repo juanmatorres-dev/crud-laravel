@@ -1,3 +1,8 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+
 <p>Formulario de creación de empleados</p> 
 
 
@@ -9,3 +14,6 @@
     @include('empleado.form',['modo'=>'Crear'])
     
 </form>
+
+</div>
+@endsection
