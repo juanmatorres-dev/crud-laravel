@@ -39,3 +39,6 @@ Route::get('/empleado', function () {
 
 // Mapea todas las rutas del modelo empleado
 Route::resource('empleado', EmpleadoController::class);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
