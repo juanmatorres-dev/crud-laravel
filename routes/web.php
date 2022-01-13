@@ -38,8 +38,8 @@ Route::get('/empleado', function () {
 //Route::get('/empleado/create',[EmpleadoController::class, 'create']);
 
 // Mapea todas las rutas del modelo empleado
-Route::resource('empleado', EmpleadoController::class);
-Auth::routes();
+Route::resource('empleado', EmpleadoController::class)->middleware('auth'); // Con ->middleware('auth') protegemos el CRUD, para que se tenga que estar logueado para acceder.
+Auth::routes(['register'=>false, 'reset'=>false]); // Se ha desactivado el registro y olvidaste la contraseña
 
 Route::get('/home', [EmpleadoController::class, 'index'])->name('home');
 
