@@ -1,15 +1,26 @@
 <!--Formulario que tendrá los datos en común con CREATE y EDIT-->
 
-
-
-
 <h1>{{ $modo }} empleado</h1> <!-- Recogemos el dato de la vista -->
+
+
+@if(count($errors) > 0)
+
+    <div class="alert alert-danger" role="alert">
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+
+@endif
+
 
 <div class="form-group row">
 
 <label class="form-label" for="Nombre">Nombre:</label>
 <div class="col-sm-10">
-    <input class="form-control" type="text" name="Nombre" value="{{ isset($empleado->Nombre)?$empleado->Nombre:'' }}" id="Nombre">
+    <input class="form-control" type="text" name="Nombre" value="{{ isset($empleado->Nombre)?$empleado->Nombre:old('Nombre') }}" id="Nombre">
 </div>
 </div>
 
@@ -18,7 +29,7 @@
 <div class="form-group row">
 <label class="form-label" for="Apellido1">Apellido1:</label>
 <div class="col-sm-10">
-    <input class="form-control" type="text" name="Apellido1" value="{{ isset($empleado->Apellido1)?$empleado->Apellido1:'' }}" id="Apellido1">
+    <input class="form-control" type="text" name="Apellido1" value="{{ isset($empleado->Apellido1)?$empleado->Apellido1:old('Apellido1') }}" id="Apellido1">
 </div>
 </div>
 
@@ -27,7 +38,7 @@
 <div class="form-group row">
 <label class="form-label" for="Apellido2">Apellido2:</label>
 <div class="col-sm-10">
-    <input class="form-control" type="text" name="Apellido2" value="{{ isset($empleado->Apellido2)?$empleado->Apellido2:'' }}" id="Apellido2">
+    <input class="form-control" type="text" name="Apellido2" value="{{ isset($empleado->Apellido2)?$empleado->Apellido2:old('Apellido2') }}" id="Apellido2">
 </div>
 </div>
 
@@ -36,7 +47,7 @@
 <div class="form-group row">
 <label class="form-label" for="Email">Email:</label>
 <div class="col-sm-10">
-    <input class="form-control" type="email" name="Email" value="{{ isset($empleado->Email)?$empleado->Email:'' }}" id="Email"> <!-- isset($empleado->Email)?$empleado->Email:'' Valida si existe el dato, si existe lo imprime, sino lo imprime vacío  -->
+    <input class="form-control" type="email" name="Email" value="{{ isset($empleado->Email)?$empleado->Email:old('Email') }}" id="Email"> <!-- isset($empleado->Email)?$empleado->Email:'' Valida si existe el dato, si existe lo imprime, sino lo imprime vacío  -->
 </div>
 </div>
 
@@ -62,7 +73,7 @@
 <div class="col-sm-10">
     <input class="btn btn-success" type="submit" value="{{$modo}} datos" id="Guardar datos">
     |
-    <a class="btn btn-primary" href="{{ url('empleado/') }}"><= Volver</a>
+    <a class="btn btn-primary" href="{{ url('empleado/') }}">Volver</a>
 </div>
 
 

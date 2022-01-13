@@ -41,6 +41,23 @@ class EmpleadoController extends Controller
     public function store(Request $request)
     {
         //
+
+        $campos=[
+            'Nombre'=>'required|string|max:100',
+            'Apellido1'=>'required|string|max:100',
+            'Apellido2'=>'required|string|max:100',
+            'Email'=>'required|email',
+            'Foto'=>'required|max:10000|mimes:jpeg,png,jpg'
+        ];
+
+        $mensaje = [
+            'required'=>'El :attribute es requerido',
+            'Foto.required'=>'La foto es requerida'
+        ];
+
+        $this->validate($request, $campos, $mensaje);
+
+
         //$datosEmpleado = request()->all();
         $datosEmpleado = request()->except('_token'); // Quita el token del formulario
         
@@ -93,6 +110,26 @@ class EmpleadoController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+
+        $campos=[
+            'Nombre'=>'required|string|max:100',
+            'Apellido1'=>'required|string|max:100',
+            'Apellido2'=>'required|string|max:100',
+            'Email'=>'required|email'
+        ];
+
+        $mensaje = [
+            'required'=>'El :attribute es requerido'
+        ];
+
+        if($request->hasFile('Foto')) { // Comprueba que la foto exista
+            $campos=['Foto'=>'required|max:10000|mimes:jpeg,png,jpg'];
+            $mensaje = ['Foto.required'=>'La foto es requerida'];
+        }
+
+        $this->validate($request, $campos, $mensaje);
+
         //
         $datosEmpleado = request()->except(['_token','_method']);
         
