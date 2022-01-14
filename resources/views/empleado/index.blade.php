@@ -68,5 +68,15 @@
 
 </table>
 
+{!! $empleados->links() !!} <!-- Pagina los resultados -->
+
+<!-- Cuenta los empleados por página -->
+Número de empleados : 
+<span class="badge bg-primary badge-pill">
+    
+    {!! $empleados->count() !!}
+</span>
+ 
+
 </div>
 @endsection
