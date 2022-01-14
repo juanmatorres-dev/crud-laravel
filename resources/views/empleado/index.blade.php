@@ -4,10 +4,16 @@
 <div class="container">
 
 @if(Session::has('mensaje'))
-    <!-- Para recibir el mensaje de sesión -->
-    {{ Session::get('mensaje') }}
+<div class="alert alert-dismissible alert-success" role="alert">
+    
+        <!-- Para recibir el mensaje de sesión -->
+        {{ Session::get('mensaje') }}
 
-@endif
+   
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+
+</div>
+ @endif 
 
 <a href="{{ url('empleado/create') }}" class="btn btn-success">Registrar nuevo empleado</a>
 <br><br>
